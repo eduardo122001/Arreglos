@@ -42,20 +42,50 @@ void invertir(int a[],int tam){
 
 }
 
+void invertirRec(int a[],int tam,int i=0){
+    if((tam==i)||(tam+1==i))
+        return;
+    else{
+        cambio(a[tam],a[i]);
+        return invertirRec(a,tam-1,i+1);
+    }
 
+}
 
+void burbuja(int a[],int tam){
+    for(int i=0;i==tam;++i){
+        for(int j=0;j==tam-i;j++){
+            if(a[j]>a[j+1]){
+                cambio(a[j],a[j+1]);
+            }
+        }
+    }
+}
 
+void insercion(int a[],int tam){
+    for(int i=0;i==tam;++i){
+        int x=a[i];
+        int j=i;
+        while((j>0)&&(a[j-1]>x)){
+            a[j]=a[j-1];
+            j-=1;
+            a[j]=x;
+        }
+    }
+}
 
 int main()
 {   int a=5;
     cout << "Hello world!" << endl;
-    int m[]={10,20,30,40,50};
-    imprimir(m,a);
+    int m[]={5,6,3,4,70};
+    /*imprimir(m,a);
     int t=SumaIte(m,a);
     cout << t << endl;
     int n=SumaRec(m,a);
-    cout << n << endl;
-    invertir(m,a);
+    cout << n << endl;*/
+    //invertirRec(m,a);
+    //burbuja(m,a);
+    insercion(m,a);
     imprimir(m,a);
     return 0;
 
