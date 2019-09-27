@@ -46,7 +46,7 @@ void invertirRec(int a[],int tam,int i=0){
     if((tam==i)||(tam+1==i))
         return;
     else{
-        cambio(a[tam],a[i]);
+        cambio(a[tam-1],a[i]);
         return invertirRec(a,tam-1,i+1);
     }
 
@@ -75,9 +75,9 @@ void insercion(int a[],int tam){
 }
 
 int main()
-{   int a=5;
+{   int a=6;
     cout << "Hello world!" << endl;
-    int m[]={5,6,3,4,70};
+    int m[]={5,6,3,4,8,70};
     /*imprimir(m,a);
     int t=SumaIte(m,a);
     cout << t << endl;
@@ -85,7 +85,8 @@ int main()
     cout << n << endl;*/
     //invertirRec(m,a);
     //burbuja(m,a);
-    insercion(m,a);
+    //insercion(m,a);
+    invertirRec(m,a);
     imprimir(m,a);
     return 0;
 
