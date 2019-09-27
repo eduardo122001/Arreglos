@@ -74,10 +74,40 @@ void insercion(int a[],int tam){
     }
 }
 
+
+int particion(int a[],int ini,int fin){
+    int pivote=a[fin];
+    int index=ini;
+
+    for(int i=ini;i<fin;i++){
+    	if(a[i]<=pivote){
+            cambio(a[i],a[index]);
+            index++;
+        }
+     }
+      cambio(a[fin],a[index]);
+     return index;
+}
+
+void quicksort(int a[],int ini,int fin){
+    if(ini<fin){
+        int p=particion(a,ini,fin);
+        quicksort(a,ini,p-1);
+        quicksort(a,p+1,fin);
+    }
+    else
+        return;
+
+
+}
+
+
+
+
 int main()
-{   int a=6;
+{   int a=12;
     cout << "Hello world!" << endl;
-    int m[]={5,6,3,4,8,70};
+    int m[]={5,6,3,4,70,65,8,89,68,63,634,563};
     /*imprimir(m,a);
     int t=SumaIte(m,a);
     cout << t << endl;
@@ -86,7 +116,8 @@ int main()
     //invertirRec(m,a);
     //burbuja(m,a);
     //insercion(m,a);
-    invertirRec(m,a);
+    //invertirRec(m,a);
+    quicksort(m,0,a-1);
     imprimir(m,a);
     return 0;
 
